@@ -1,0 +1,16 @@
+<%- include ("partials/header"); -%>
+
+<div class="container-fluid sign">
+    <form class="form-signin" action="/login" method="POST">
+        <img src="https://image.flaticon.com/icons/png/512/26/26104.png" alt="Pato" class="icon big">
+        <h1>Inicia sesión</h1>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Correo electrónico" name="username" required autofocus>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" name="password" required>
+        <p>¿No tienes una cuenta?  <a href="/signup">Regístrate</a></p>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Enviar</button>
+        <!-- not yet <hr class="my-4">
+        <a class="btn btn-lg btn-block btn-google" href="/"><i class="fab fa-google mr-2"></i> Inicia sesión con Google</a>> -->
+    </form>
+</div>
+
+<%- include ("partials/footer"); -%>

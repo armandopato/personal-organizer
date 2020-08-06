@@ -1,0 +1,25 @@
+<%- include ("partials/header"); -%>
+
+<div class="container-fluid sign">
+    <form class="form-signin" method="POST" action="/signup">
+        <img src="https://image.flaticon.com/icons/png/512/26/26104.png" alt="Pato" class="icon big">
+        <h1>Regístrate</h1>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Correo electrónico" name="username" required autofocus>
+        <input type="password" class="form-control" placeholder="Contraseña" name="password" required>
+        
+        <div class="inputName">
+            <input type="text" class="form-control" placeholder="Nombre(s)" name="fName" required>
+            <input type="text" class="form-control" placeholder="Apellido(s)" name="lName" required>
+        </div>
+        
+        <div>
+            <input type="text" class="form-control" placeholder="Apodo (opcional)" name="nickname">
+        </div>
+
+        <button class="btn btn-lg btn-primary" type="submit">Enviar</button>
+        <!-- not yet <hr class="my-4">
+        <a class="btn btn-lg btn-block btn-google" href="/"><i class="fab fa-google mr-2"></i> Regístrate con Google</a> -->
+    </form>
+</div>
+
+<%- include ("partials/footer"); -%>

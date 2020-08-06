@@ -1,0 +1,621 @@
+body
+{
+    font-family: 'Quicksand', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+    font-family: 'Martel', serif;
+}
+
+.center
+{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hidden
+{
+    display: none;
+}
+
+/* Navbar */
+
+.navbar
+{
+    background-color: #233b6e;
+    font-weight: 500;
+}
+
+.navbar-brand
+{
+    font-weight: bold;
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    margin: 0.2rem 2.6rem 0.2rem 0.7rem;
+}
+
+.navbar-nav
+{
+    margin-right: 1rem;
+}
+
+.nav-item
+{
+    margin-left: 0.7rem;
+}
+
+/* Container fluid */
+
+.container-fluid
+{
+    padding: 8%;
+}
+
+/* Footer */
+
+#footer
+{
+    background-color: #415f9d;
+    text-align: center;
+    color: #eff0f4;
+    padding: 3rem;
+}
+
+#footer p
+{
+    margin: 1rem 0 0;
+    font-weight: 500;
+}
+
+#currentDate
+{
+    font-style: italic;
+}
+
+.icon
+{
+    height: 2rem;
+    width: auto;
+}
+
+
+/* Body main*/
+
+.main
+{
+    background-color: #eff0f4;
+    padding-bottom: 10%;
+}
+
+.main h1
+{
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+.main img
+{
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.main p
+{
+    margin: 7% 0;
+    font-size: 1.2rem;
+}
+
+.button-wrapper
+{
+    text-align: center;
+}
+
+.btn
+{
+    margin: 0 1rem;
+}
+
+@media (max-width: 1027px)
+{
+    .main h1 
+    {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    .main p
+    {
+        text-align: center;
+    }
+}
+
+@media (max-width: 865px)
+{
+    .main h1 
+    {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 767px)
+{
+    .main img
+    {
+        position: static;
+        margin-top: 2.5rem;
+    }
+}
+
+/* Body description */
+
+.description
+{
+    background-color: #d3d6db;
+}
+
+.card
+{
+    height: 17rem;
+    width: auto;
+}
+
+@media (max-width: 1226px)
+{
+    .card
+    {
+        height: 20rem;
+        width: auto;
+    }
+}
+
+@media (max-width: 928px)
+{
+    .card
+    {
+        height: 21rem;
+        width: auto;
+    }
+}
+
+@media (max-width: 767px)
+{
+    .card
+    {
+        height: 15rem;
+        width: auto;
+        margin-bottom: 5%;
+    }
+
+    .card.last
+    {
+        margin: 0;
+    }
+}
+
+.description .card i
+{
+    font-size: 3rem;
+    margin: 1.3rem;
+}
+
+.card h3
+{
+    font-weight: bold;
+}
+
+.description-footer
+{
+    background-color: #eff0f4;
+    padding: 4.5% 0;
+}
+
+.description-footer h3
+{
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+/* Sign in and sign up */
+
+.sign 
+{
+    display: flex;
+    -ms-flex-align: center;
+    -ms-flex-pack: center;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+.sign h1
+{
+    font-weight: bold;
+    margin: 1.2rem 0;
+}
+
+.sign .btn
+{
+    margin-top: 1.5rem;
+}
+
+.big
+{
+    height: 5rem;
+    width: auto;
+}
+
+.form-signin 
+{
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+.form-signin .checkbox 
+{
+    font-weight: 400;
+}
+
+.form-signin .form-control 
+{
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+}
+.form-signin .form-control:focus
+{
+    z-index: 2;
+}
+.form-signin input[type="email"]
+{
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"]
+{
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.btn-google
+{
+    color: white;
+    background-color: #ea4335;
+}
+
+.btn-google:hover
+{
+    color: white;
+    background-color: #c30e1f;
+}
+
+.inputName
+{
+    margin: 1.5rem 0;
+}
+
+/* User page */
+
+/* Card container */
+
+.home .navtabs
+{
+    border: 2px solid;
+}
+
+.home div.card {
+    border: 0;
+    /* margin-bottom: 30px; */
+    /* margin-top: 30px; */
+    border-radius: 6px;
+    color: rgba(0,0,0,.87);
+    background: #fff;
+    /* width: 100%; */
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+    display: inline;
+}
+
+.home .card-body
+{
+    background-color: #415f9d1a;
+    border-bottom-left-radius: 5%;
+    border-bottom-right-radius: 5%;
+}
+
+.home div.card.card-plain {
+    background: transparent;
+    box-shadow: none;
+}
+.home div.card .card-header {
+    border-radius: 3px;
+    padding: 1rem 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: -30px;
+    border: 0;
+    background: linear-gradient(60deg,#eee,#bdbdbd);
+}
+
+.home .card-plain .card-header:not(.card-avatar) {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.home .div.card .card-body{
+    padding: 15px 30px;
+}
+
+.home div.card .card-header-blue {
+    background: linear-gradient(60deg,#415f9d,#233b6e);
+    box-shadow: 0 5px 20px 0 rgba(0,0,0,.2), 0 13px 24px -11px #233b6e;
+}
+
+
+.home .card-nav-tabs .card-header {
+    margin-top: -30px!important;
+}
+
+.home .card .card-header .nav-tabs {
+    padding: 0;
+}
+
+.home .nav-tabs {
+    border: 0;
+    border-radius: 3px;
+    padding: 0 15px;
+}
+
+.home .nav {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.home .nav-tabs .nav-item {
+    margin-bottom: -1px;
+}
+
+.home .nav-tabs .nav-item .nav-link.active {
+    background-color: hsla(0,0%,100%,.2);
+    transition: background-color .3s .2s;
+}
+
+.home .nav-tabs .nav-item .nav-link{
+    border: 0!important;
+    color: #fff!important;
+    font-weight: 500;
+}
+
+.home .nav-tabs .nav-item .nav-link {
+    color: #fff;
+    border: 0;
+    margin: 0;
+    border-radius: 3px;
+    line-height: 24px;
+    text-transform: uppercase;
+    font-size: 12px;
+    padding: 10px 15px;
+    background-color: transparent;
+    transition: background-color .3s 0s;
+}
+
+.home .nav-link{
+    display: block;
+}
+
+.home .nav-tabs .nav-item .material-icons {
+    margin: -1px 5px 0 0;
+    vertical-align: middle;
+}
+
+.home .nav .nav-item {
+    position: relative;
+}
+
+.home
+{
+    background-color: #eff0f4;
+    min-height: fit-content;
+}
+
+/*           Main content                 */
+
+/* Spendings */
+
+.total-balance
+{
+    display: inline-block;
+    border: 3px solid;
+    border-radius: 10%;
+    padding: 1.8rem;
+    margin: 1.5rem 0;
+}
+
+.edit 
+{
+    margin-top: 0.5rem;
+    border: none;
+}
+
+.flow
+{
+    border: 3px solid;
+    margin: 2.8rem;
+    padding: 1.5rem 15px;
+}
+
+.header-flow
+{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.body-flow
+{
+    margin: 0.5rem 0;
+}
+
+.income
+{
+    border-color: #0f882a;
+    background-color: #0f882a38;
+}
+
+.income .header-flow
+{
+    color: #0f882a;
+}
+
+.expense
+{
+    border-color: #c30;
+    background-color: #cc33004a;
+}
+
+.expense .header-flow
+{
+    color: #c30;
+}
+
+
+.lastItem
+{
+    margin: 2.8rem 0;
+    padding: 1.5rem 15px;
+}
+
+
+.addItem
+{
+    font-size: 3rem;
+    border: none;
+}
+
+/* New item form */
+
+.radio-input
+{
+    display: inline-block;
+    margin: 0.5rem 0.5rem;
+}
+
+.radio-input input
+{
+    margin: 0 0.3rem;
+}
+
+.value-input-container
+{
+    text-align: center;
+}
+
+.value-input
+{
+    display: inline-block;
+    width: 7rem;
+}
+
+
+.description-input
+{
+    margin: 0.5rem 0;
+}
+.description-input label
+{
+    margin: 0;
+}
+.description-input input
+{
+    margin: 3px 0 1rem;
+}
+
+
+
+/*  Add list */
+
+.form-container
+{
+    padding: 10%;
+}
+
+#addNewList h2
+{
+    font-weight: 900;
+}
+
+#addNewList select
+{
+    width: 10rem;
+}
+
+#addNewList form label
+{
+    display: block;
+}
+
+#addNewList input
+{
+    width: 18rem;
+}
+
+.form-group
+{
+    margin: 2rem 0;
+}
+
+/* Navbar name */
+.navbar-name
+{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media (max-width: 1117px)
+{
+    .navbar-name
+    {
+        display: none;
+    }
+}
+
+.hidden
+{
+    display:none;
+}
+
+.toDoItem
+{
+    background-color: #99ec9e;
+    border: none;
+    border-radius: 3%;
+}
+
+.passed
+{
+    color:red;
+}
+
+.genericItem
+{
+    background-color: #fdcd0094;
+    border: none;
+}

@@ -1,0 +1,260 @@
+<%- include ("partials/headerLogged"); -%>
+
+<div class="container-fluid home">
+    <div class="card card-nav-tabs card-plain">
+        <div class="card-header card-header-blue">
+            <div class="nav-tabs-navigation">
+                <div class="nav-tabs-wrapper">
+                    <ul class="nav nav-tabs" data-tabs="tabs">
+                        <% lists.forEach( (list, index) => { %>
+                        <li class="nav-item">
+                            <a class="nav-link <%= index === 0 ? 'active' : '' %>" data-toggle="tab"
+                                href="<%='#l' + list.id %>"> <%= list.name %> </a>
+                        </li>
+                        <% }); %>
+
+                        <li class="nav-item" id="addNewListTab">
+                            <a class="nav-link <%= lists.length === 0 ? 'active' : '' %>" data-toggle="tab" href="#addNewList" ><i
+                                    class="fas fa-plus-circle"></i></a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div class="tab-content text-center">
+
+                <% lists.forEach( (list, index) => { %>
+                <div class="tab-pane <%= index === 0 ? 'active' : '' %>" id=<%= 'l' + list.id %>>
+                
+                <% if (list.type === 'spendings') { %>
+                
+                    <div class="total-balance">
+                        <h3>Balance</h3>
+                        <h4>$ <%= list.content.currentBalance %></h4>
+                        <button class="btn btn-outline-dark btn-sm edit editBalance"><i class="fas fa-edit"></i></button>
+                        <div class="hidden">
+                            <form class="updateBalanceForm">
+                                <input type="number" placeholder="Monto" step="0.1" min="0" name="newBalance" class="form-control value-input" style="margin: 1rem 0;" required>
+                                <div class="button-wrapper">
+                                    <button class="btn btn-sm btn-primary" type="submit">Actualizar</button>
+                                    <button class="btn btn-sm btn-danger cancelBalance" type="button">Cancelar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="row row-eq-height">
+
+                        <% list.content.items.forEach((item) => { %>
+                        <div class="col-lg-4">
+                            <div class="flow <%= item.type === 'income' ? 'income' : 'expense'%>"
+                                id=<%= 's' + item._id %>>
+                                <div class="header-flow">
+                                    <%= (item.type === 'income' ? '+' : '-') + ' $ ' + item.value %>
+                                </div>
+                                <div class="body-flow">
+                                    <%= item.description %>
+                                </div>
+                                <div class="button-wrapper">
+                                    <button class="btn btn-outline-dark btn-sm edit deleteItem"><i
+                                            class="fas fa-trash"></i></button>
+                                </div>
+
+                            </div>
+                        </div>
+                        <% }); %>
+
+                        <div class="col-lg-4 hidden">
+                            <div class="flow text-center">
+                                <div class="header-flow">Nuevo registro</div>
+                                <form class="addSpendingItemForm">
+                                    <div class="radio-input">
+                                        <label>Ingreso</label>
+                                        <input type="radio" name="type" value="income" class="align-middle" required>
+                                    </div>
+                                    <div class="radio-input">
+                                        <label>Gasto</label>
+                                        <input type="radio" name="type" value="expense" class="align-middle" required>
+                                    </div>
+                                    <div class="value-input-container">
+                                        <input type="number" placeholder="Monto" step="0.1" min="0.1" name="value" class="form-control value-input" required>
+                                    </div>
+                                    <div class="description-input">
+                                        <label>Descripción</label>
+                                        <input type="text" name="description" class="form-control" placeholder="Descripción breve" required>
+                                    </div>
+                                    
+                                    <button class="btn btn-sm btn-primary sendForm" type="submit">Enviar</button>
+                                    <button class="btn btn-sm btn-danger cancel" type="button">Cancelar</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 lastItem">
+                            <button class="btn btn-outline-dark align-middle center addItem"><i
+                                    class="fas fa-plus-circle"></i></button>
+                        </div>
+
+                        <div class="col-lg-4 lastItem">
+                            <button class="btn btn-danger align-middle center deleteList">Eliminar colección</button>
+                        </div>
+
+                    </div>
+                <!-- End of spendings template -->
+                <% } else if (list.type === 'toDo') { %>
+
+                    <div class="row row-eq-height">
+
+                        <% list.content.items.forEach((item) => { %>
+                        <div class="col-lg-4">
+                            <div class="flow toDoItem"
+                                id=<%= 't' + item._id %>>
+                                <div class="header-flow date <%= item.passed? 'passed' : ''%>">
+                                    <%= item.deadline.toUTCString() %>
+                                </div>
+                                <div class="header-flow <%= item.passed? 'passed' : ''%>">
+                                    
+                                </div>
+                                <div class="body-flow">
+                                    <%= item.activity %>
+                                </div>
+                                <div class="button-wrapper">
+                                    <button class="btn btn-outline-dark btn-sm edit deleteItem"><i
+                                            class="fas fa-trash"></i></button>
+                                </div>
+
+                            </div>
+                        </div>
+                        <% }); %>
+
+                        <div class="col-lg-4 hidden">
+                            <div class="flow text-center">
+                                <div class="header-flow">Nuevo registro</div>
+                                <form class="addToDoItemForm">
+                                    <div class="description-input">
+                                        <label>Fecha y hora</label>
+                                        <input type="date" name="date" class="form-control" required>
+                                        <input type="time" name="time" class="form-control" required>
+                                    </div>
+                                        
+                                    
+                                    <div class="description-input">
+                                        <label>Actividad</label>
+                                        <input type="text" name="activity" class="form-control" placeholder="Descripción breve" required>
+                                    </div>
+                                    
+                                    <button class="btn btn-sm btn-primary sendForm" type="submit">Enviar</button>
+                                    <button class="btn btn-sm btn-danger cancel" type="button">Cancelar</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 lastItem">
+                            <button class="btn btn-outline-dark align-middle center addItem"><i
+                                    class="fas fa-plus-circle"></i></button>
+                        </div>
+
+                        <div class="col-lg-4 lastItem">
+                            <button class="btn btn-danger align-middle center deleteList">Eliminar colección</button>
+                        </div>
+
+                    </div>
+
+
+
+
+                <% } else { %>
+
+                    <div class="row row-eq-height">
+
+                        <% list.content.items.forEach((item) => { %>
+                        <div class="col-lg-4">
+                            <div class="flow genericItem"
+                                id=<%= 'g' + item._id %>>
+                                <div class="header-flow">
+                                    <%= item.description %>
+                                </div>
+                                <div class="button-wrapper">
+                                    <button class="btn btn-outline-dark btn-sm edit deleteItem"><i class="fas fa-trash"></i></button>
+                                    <!--<button class="btn btn-outline-dark btn-sm edit editBalance"><i class="fas fa-edit"></i></button>-->
+                                </div>
+                                <!--<div class="hidden">
+                                    <form class="updateBalanceForm">
+                                        <input type="number" placeholder="Monto" step="0.1" min="0" name="newBalance" class="form-control value-input" style="margin: 1rem 0;" required>
+                                        <div class="button-wrapper">
+                                            <button class="btn btn-sm btn-primary" type="submit">Actualizar</button>
+                                            <button class="btn btn-sm btn-danger cancelBalance" type="button">Cancelar</button>
+                                        </div>
+                                    </form>
+                                </div>-->
+
+                            </div>
+                        </div>
+                        <% }); %>
+
+                        <div class="col-lg-4 hidden">
+                            <div class="flow text-center">
+                                <div class="header-flow">Nuevo registro</div>
+                                <form class="addGenericItemForm">
+                                    <div class="description-input">
+                                        <label>Contenido</label>
+                                        <input type="text" name="description" class="form-control" placeholder="Descripción breve" required>
+                                    </div>
+                                    
+                                    <button class="btn btn-sm btn-primary sendForm" type="submit">Enviar</button>
+                                    <button class="btn btn-sm btn-danger cancel" type="button">Cancelar</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 lastItem">
+                            <button class="btn btn-outline-dark align-middle center addItem"><i
+                                    class="fas fa-plus-circle"></i></button>
+                        </div>
+
+                        <div class="col-lg-4 lastItem">
+                            <button class="btn btn-danger align-middle center deleteList">Eliminar colección</button>
+                        </div>
+
+                    </div>
+                <% } %>
+
+                <!-- End of lists template -->
+                </div>
+                <% }); %>
+
+                <div class="tab-pane <%= lists.length === 0 ? 'active' : '' %>" id="addNewList">
+                    <div class="form-container">
+                        <h2>Crear nueva colección</h2>
+                        <form id="createNewListForm" action="/api/create">
+                            <div class="form-group">
+                                <label for="listType">Tipo</label>
+                                <select name="listType" class="form-control value-input" id="listType" required>
+                                    <option value="spendings">Finanzas</option>
+                                    <option value="toDo">Recordatorios</option>
+                                    <option value="generic">Lista genérica</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="listName">Nombre</label>
+                                <input type="text" name="listName" id="listName" class="form-control value-input"
+                                    placeholder="Nombre de la colección" required>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-large">Crear</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<%- include ("partials/footerLogged"); -%>
