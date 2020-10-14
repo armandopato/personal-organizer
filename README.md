@@ -1,6 +1,4 @@
 # personal-organizer
-A basic personal organizer website.
+A personal organizer website built with Express and the EJS templating engine.
 
 https://organizadorpersonal.herokuapp.com/
-
-Built with the Express framework and ejs.
